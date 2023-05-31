@@ -4,12 +4,41 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/styles.css" />
+
+    <title>API de Rick and Morty</title>
   </head>
   <body>
-    <main id="main">
-      <section class="main__section"></section>
-    </main>
+    <header id="header">
+      <picture class="header__picture">
+        <img
+          src="https://i.pinimg.com/474x/56/96/34/5696347ff2e75d4139491f9689a40169.jpg"
+          alt="icone"
+        />
+      </picture>
+
+      <div class="header__content">
+        <h1 class="header__title">API de Rick and Morty</h1>
+      </div>
+    </header>
+
+    <main id="main"></main>
+
+    <footer class="footer">
+      <div class="footer__content">
+        <nav class="footer__nav">
+          <ul class="footer__list">
+            <li class="footer__list-item"><p></p></li>
+            <li class="footer__list-item"><p>Localizações: 10</p></li>
+            <li class="footer__list-item"><p>Episódios: 10</p></li>
+          </ul>
+        </nav>
+
+        <p>Desenvolvido por <span>Vanágila</span> em 2023</p>
+      </div>
+    </footer>
 
     <!-- AXIOS -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
@@ -18,6 +47,7 @@
     <script src="./js/api.js"></script>
 
     <!-- SCRIPTS PRINCIPAIS -->
+
     <script type="module" src="./middlewares/middlewares.js"></script>
     <script type="module" src="./js/index.js"></script>
   </body>

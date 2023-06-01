@@ -13,10 +13,12 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 function buildCard(character) {
   const main = document.getElementById("main");
+  const section = document.getElementById("section");
 
   const mainCard = document.createElement("div");
   mainCard.classList.add("main__card");
-  main.append(mainCard);
+  section.append(mainCard);
+  main.append(section);
 
   const picture = document.createElement("picture");
   picture.classList.add("main__card-picture");
@@ -40,12 +42,12 @@ function buildCard(character) {
   mainCardContent.append(typeStatusContainer);
 
   const status = document.createElement("span");
-  status.classList.add("main__card-status");
-  status.innerText = character.status;
+  status.classList.add("span-content");
+  status.innerText = character.status + " - ";
   typeStatusContainer.append(status);
 
   const species = document.createElement("span");
-  species.classList.add("main__card-type");
+  species.classList.add("span-content");
   species.innerText = character.species;
   typeStatusContainer.append(species);
 
@@ -54,13 +56,13 @@ function buildCard(character) {
   mainCardContent.append(locationContainer);
 
   const locationName = document.createElement("p");
-  locationName.classList.add("main__card-location-title");
+  locationName.classList.add("p-content");
   locationName.innerText = "Última localização conhecida";
   locationContainer.append(locationName);
 
   const planet = document.createElement("span");
-  planet.classList.add("main__card-location-planet");
-  planet.innerText = "Planeta KPTO";
+  planet.classList.add("span-content");
+  planet.innerText = character.location.name;
   locationContainer.append(planet);
 
   const lastSeenContainer = document.createElement("div");
@@ -68,12 +70,12 @@ function buildCard(character) {
   mainCardContent.append(lastSeenContainer);
 
   const lastTitle = document.createElement("p");
-  lastTitle.classList.add("main__card-last-seen-title");
+  lastTitle.classList.add("p-content");
   lastTitle.innerText = "Visto pela última vez em";
   lastSeenContainer.append(lastTitle);
 
   const chapter = document.createElement("span");
-  chapter.classList.add("main__card-last-seen-chapter");
+  chapter.classList.add("span-content");
   const lastIndex = character.episodes.length - 1;
   chapter.innerText = character.episodes[lastIndex].data.name;
   lastSeenContainer.append(chapter);

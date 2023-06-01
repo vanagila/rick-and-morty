@@ -1,3 +1,5 @@
+/* #0B0D0B, #115916, #548C58, #F2F2F2, #BFBFBF CORES CARD */
+/* #1E261F #115916 #41BF49 #D4D955 #F2F2F2 CORES GERAL  5a5858*/
 * {
   margin: 0;
   padding: 0;
@@ -31,19 +33,24 @@
 }
 
 #main {
+  margin-top: 8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#section {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  width: 1200px;
   gap: 8rem;
-  align-items: center;
-  margin-top: 8rem;
 }
 
-.main__section {
+/* .main__section {
   display: flex;
   justify-content: space-evenly;
-  width: 1000px;
-}
+} */
 
 .main__card {
   display: flex;
@@ -53,15 +60,26 @@
 .main__card-content {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
+  width: 200px;
 }
 
 .main__card-picture {
-  width: 300px;
+  width: 200px;
 }
 
 .main__card-picture img {
   width: 100%;
+}
+
+.p-content {
+  color: #6c6c6c;
+  font-weight: 800;
+}
+
+.span-content {
+  color: #0b0d0b;
+  font-weight: 800;
 }
 
 .main__card-title {

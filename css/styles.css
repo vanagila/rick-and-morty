@@ -77,6 +77,28 @@
   font-weight: 800;
 }
 
+.status-container {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  /* color: #0b0d0b;
+  font-weight: 800; */
+}
+
+.status-circle {
+  background-color: #135019;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.reddot {
+  background-color: red;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
 .span-content {
   color: #0b0d0b;
   font-weight: 800;

@@ -1,14 +1,24 @@
-import { getCharacters } from "../middlewares/middlewares.js";
+import {
+  getCharacters,
+  getCharacterQty,
+  getLocationQty,
+  getEpisodeQty,
+} from "../middlewares/middlewares.js";
 
-const charactersQty = document.querySelectorAll(".footer__list-item p")[0];
+const charactersQtyElem = document.querySelectorAll(".footer__list-item p")[0];
+const locationsQtyElem = document.querySelectorAll(".footer__list-item p")[1];
+const episodesQtyElem = document.querySelectorAll(".footer__list-item p")[2];
 
 document.addEventListener("DOMContentLoaded", async () => {
+  charactersQtyElem.innerText = `Personagens: ${await getCharacterQty()}`;
+  locationsQtyElem.innerText = `Localizações: ${await getLocationQty()}`;
+  episodesQtyElem.innerText = `Episódios: ${await getEpisodeQty()}`;
+
   let charactersList = await getCharacters();
 
   charactersList.forEach((character) => {
     buildCard(character);
   });
-  charactersQty.innerText = `Personagens: ${charactersList.length}`;
 });
 
 function buildCard(character) {
@@ -39,12 +49,21 @@ function buildCard(character) {
   mainCardContent.append(h2);
 
   const typeStatusContainer = document.createElement("div");
+  typeStatusContainer.classList.add("status-container");
   mainCardContent.append(typeStatusContainer);
+
+  const statusCircle = document.createElement("span");
+  statusCircle.classList.add("status-circle");
+  typeStatusContainer.append(statusCircle);
 
   const status = document.createElement("span");
   status.classList.add("span-content");
-  status.innerText = character.status + " - ";
+  status.innerText = character.status;
   typeStatusContainer.append(status);
+
+  character.status !== "Alive"
+    ? (statusCircle.className = "reddot")
+    : (statusCircle.className = "status-circle");
 
   const species = document.createElement("span");
   species.classList.add("span-content");

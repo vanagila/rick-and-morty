@@ -7,7 +7,6 @@ export async function getCharacters() {
       character.episodes = await getCharacterEps(character.id);
     }
 
-    console.log(characters);
     return characters;
   } catch (err) {
     console.log(err);
@@ -26,7 +25,46 @@ export async function getCharacterEps(characterId) {
       const res = await api.get(ep);
       episodeNames.push(res);
     }
+
     return episodeNames;
+  } catch (err) {
+    console.log(err);
+    return [];
+  }
+}
+
+export async function getCharacterQty() {
+  try {
+    const res = await api.get("/character");
+    const charactersQty = res.data.info.count;
+
+    return charactersQty;
+  } catch (err) {
+    console.log(err);
+    return [];
+  }
+}
+
+export async function getLocationQty() {
+  try {
+    const res = await api.get("/location");
+    const locationsQty = res.data.info.count;
+
+    console.log(locationsQty);
+    return locationsQty;
+  } catch (err) {
+    console.log(err);
+    return [];
+  }
+}
+
+export async function getEpisodeQty() {
+  try {
+    const res = await api.get("/episode");
+    const episodeQty = res.data.info.count;
+
+    console.log(episodeQty);
+    return episodeQty;
   } catch (err) {
     console.log(err);
     return [];

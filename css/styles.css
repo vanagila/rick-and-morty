@@ -1,0 +1,167 @@
+/* #0B0D0B, #115916, #548C58, #F2F2F2, #BFBFBF CORES CARD */
+/* #1E261F #115916 #41BF49 #D4D955 #F2F2F2 CORES GERAL  5a5858*/
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  border: 0;
+  box-sizing: border-box;
+  list-style: none;
+
+  font-size: 16px;
+}
+#header {
+  padding: 1rem;
+}
+
+.header__picture img {
+  width: 50px;
+  border-radius: 50%;
+}
+
+.header__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header__title {
+  color: #135019;
+  font-size: 3rem;
+}
+
+#main {
+  margin-top: 8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 1200px;
+  gap: 8rem;
+}
+
+.main__card {
+  display: flex;
+  gap: 1rem;
+}
+
+.main__card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 200px;
+}
+
+.main__card-picture {
+  width: 200px;
+}
+
+.main__card-picture img {
+  width: 100%;
+}
+
+.p-content {
+  color: #6c6c6c;
+  font-weight: 800;
+}
+
+.status-container {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.status-circle,
+.reddot {
+  background-color: #135019;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.reddot {
+  background-color: red;
+}
+
+.span-content {
+  color: #0b0d0b;
+  font-weight: 800;
+}
+
+.main__card-title {
+  color: #135019;
+}
+
+#btn-section {
+  margin: 25px 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+#prev,
+#next {
+  width: 0;
+  height: 0;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  background: none;
+  cursor: pointer;
+}
+
+#next {
+  border-left: 20px solid #135019;
+}
+
+#prev {
+  border-right: 20px solid #135019;
+}
+
+#img-container {
+  display: flex;
+  justify-content: center;
+}
+
+#img-container img {
+  width: 500px;
+  height: 500px;
+}
+
+#footer {
+  background-color: #1e261f;
+  display: flex;
+  justify-content: center;
+}
+
+.footer__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5rem 0 5rem 0;
+}
+
+.footer__list {
+  display: flex;
+  gap: 50px;
+}
+
+.footer__list p,
+#credits {
+  color: #6c6c6c;
+  font-size: 19px;
+  font-weight: 800;
+}
+
+#credits {
+  margin-top: 100px;
+}
+
+#dev {
+  color: #ffff;
+}

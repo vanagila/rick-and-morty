@@ -42,10 +42,6 @@ async function updateCharactersList(page) {
     const main = document.getElementById("main");
     const section = document.getElementById("section");
 
-    // while (section.firstChild) {
-    //   section.firstChild.remove();
-    // }
-
     section.innerHTML = "";
 
     characterList.forEach((character) => {

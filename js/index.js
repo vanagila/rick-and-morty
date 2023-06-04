@@ -8,27 +8,63 @@ import {
 const charactersQtyElem = document.querySelectorAll(".footer__list-item p")[0];
 const locationsQtyElem = document.querySelectorAll(".footer__list-item p")[1];
 const episodesQtyElem = document.querySelectorAll(".footer__list-item p")[2];
+const prevBtn = document.getElementById("prev");
+const nextBtn = document.getElementById("next");
+let currentPage = 1;
 
 document.addEventListener("DOMContentLoaded", async () => {
-  charactersQtyElem.innerText = `Personagens: ${await getCharacterQty()}`;
-  locationsQtyElem.innerText = `Localizações: ${await getLocationQty()}`;
-  episodesQtyElem.innerText = `Episódios: ${await getEpisodeQty()}`;
+  try {
+    charactersQtyElem.innerText = `Personagens: ${await getCharacterQty()}`;
+    locationsQtyElem.innerText = `Localizações: ${await getLocationQty()}`;
+    episodesQtyElem.innerText = `Episódios: ${await getEpisodeQty()}`;
 
-  let charactersList = await getCharacters();
+    await updateCharactersList(currentPage);
 
-  charactersList.forEach((character) => {
-    buildCard(character);
-  });
+    prevBtn.addEventListener("click", () => {
+      if (currentPage > 1) {
+        currentPage--;
+        updateCharactersList(currentPage);
+      }
+    });
+
+    nextBtn.addEventListener("click", () => {
+      currentPage++;
+      updateCharactersList(currentPage);
+    });
+  } catch (err) {
+    console.log(err);
+  }
 });
 
-function buildCard(character) {
-  const main = document.getElementById("main");
-  const section = document.getElementById("section");
+async function updateCharactersList(page) {
+  try {
+    const characterList = await getCharacters(page);
+    const main = document.getElementById("main");
+    const section = document.getElementById("section");
 
+    // while (section.firstChild) {
+    //   section.firstChild.remove();
+    // }
+
+    section.innerHTML = "";
+
+    characterList.forEach((character) => {
+      buildCard(character, section);
+    });
+
+    main.append(section);
+
+    prevBtn.disable = page === 1;
+    nextBtn.disable = characterList.length === 0;
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+function buildCard(character, parentElement) {
   const mainCard = document.createElement("div");
   mainCard.classList.add("main__card");
-  section.append(mainCard);
-  main.append(section);
+  parentElement.append(mainCard);
 
   const picture = document.createElement("picture");
   picture.classList.add("main__card-picture");

@@ -28,10 +28,6 @@
   font-size: 3rem;
 }
 
-.header__search i {
-  color: #135019;
-}
-
 #main {
   margin-top: 8rem;
   display: flex;
@@ -81,11 +77,10 @@
   display: flex;
   align-items: center;
   gap: 0.8rem;
-  /* color: #0b0d0b;
-  font-weight: 800; */
 }
 
-.status-circle {
+.status-circle,
+.reddot {
   background-color: #135019;
   width: 8px;
   height: 8px;
@@ -94,9 +89,6 @@
 
 .reddot {
   background-color: red;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
 }
 
 .span-content {
@@ -106,6 +98,31 @@
 
 .main__card-title {
   color: #135019;
+}
+
+#btn-section {
+  margin: 25px 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+#prev,
+#next {
+  width: 0;
+  height: 0;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  background: none;
+  cursor: pointer;
+}
+
+#next {
+  border-left: 20px solid #135019;
+}
+
+#prev {
+  border-right: 20px solid #135019;
 }
 
 .footer {

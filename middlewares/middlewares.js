@@ -1,6 +1,6 @@
-export async function getCharacters() {
+export async function getCharacters(page) {
   try {
-    const res = await api.get("/character");
+    const res = await api.get(`/character?page=${page}`);
     const characters = res.data.results;
 
     for (let character of characters) {
